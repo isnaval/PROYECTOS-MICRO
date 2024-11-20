@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SOS Rescate</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=TU_API_KEY&callback=initMap"
+      defer
+    ></script>
+    <script src="scripts.js" defer></script>
+  </head>
+  <body>
+    <!-- Pantalla de Bienvenida -->
+    <section id="welcome-screen">
+      <header>
+        <img src="./images.jpg" alt="Imagen SOS Rescate" />
+
+        <h1>SOS Rescate</h1>
+      </header>
+      <main>
+        <p>
+          Bienvenido a la aplicación beta de control de conductores. Por favor,
+          ingresa tus datos para continuar.
+        </p>
+        <form id="welcomeForm">
+          <label for="name">Nombre:</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Tu nombre"
+            required
+          />
+          <label for="vin">Número de Bastidor:</label>
+          <input
+            type="text"
+            id="vin"
+            name="vin"
+            placeholder="Número de bastidor"
+            required
+          />
+          <button type="button" onclick="requestLocation()">
+            Dar Acceso al GPS
+          </button>
+        </form>
+      </main>
+      <footer>
+        <p>&copy; 2024 SOS Rescate. Todos los derechos reservados.</p>
+      </footer>
+    </section>
+
+    <!-- Pantalla Principal -->
+    <section id="main-screen" style="display: none">
+      <header>
+        <h1>SOS Rescate</h1>
+      </header>
+      <main class="layout-container">
+        <!-- Mapa -->
+        <div class="map-container">
+          <h2>Mapa</h2>
+          <div id="map"></div>
+        </div>
+        <!-- Chat -->
+        <div class="chat-container">
+          <h2>Chat de Emergencia</h2>
+          <iframe
+            src="https://t.me/YOUR_TELEGRAM_GROUP"
+            class="chat-embed"
+          ></iframe>
+        </div>
+      </main>
+      <footer>
+        <button onclick="logout()">Salir de la Aplicación</button>
+      </footer>
+    </section>
+  </body>
+</html>
