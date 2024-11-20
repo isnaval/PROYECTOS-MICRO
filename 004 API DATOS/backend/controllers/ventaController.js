@@ -9,12 +9,14 @@
  * - Eliminar una venta de la base de datos.
  */
 
+/**
+ * ventaController.js
+ */
 const VentaModel = require("../models/venta");
 
-// Obtener todas las ventas
 exports.getAllVentas = async (req, res) => {
   try {
-    const ventas = await VentaModel.getAllVentas(); // Obtener todas las ventas de la base de datos
+    const ventas = await VentaModel.getAllVentas();
     res.json(ventas);
   } catch (error) {
     console.error("Error al obtener ventas:", error);
@@ -25,18 +27,15 @@ exports.getAllVentas = async (req, res) => {
   }
 };
 
-// Buscar venta por ID
 exports.getVentaById = async (req, res) => {
   try {
     const ventaId = req.params.id;
 
-    // Validación del ID
     if (!ventaId) {
       return res.status(400).json({ error: "ID de venta requerido" });
     }
 
-    const venta = await VentaModel.getVentaById(ventaId); // Obtener venta por ID
-
+    const venta = await VentaModel.getVentaById(ventaId);
     if (!venta) {
       return res.status(404).json({ error: "Venta no encontrada" });
     }
@@ -51,7 +50,6 @@ exports.getVentaById = async (req, res) => {
   }
 };
 
-// Crear una nueva venta
 exports.createVenta = async (req, res) => {
   try {
     const {
@@ -63,7 +61,6 @@ exports.createVenta = async (req, res) => {
       importe_coste_total,
     } = req.body;
 
-    // Validación de campos requeridos
     if (!id_cliente || !id_producto || !fecha_pedido || !unidades) {
       return res.status(400).json({
         error: "Todos los campos son requeridos",
@@ -76,15 +73,13 @@ exports.createVenta = async (req, res) => {
       });
     }
 
-    // Validación de valores numéricos
     if (
       isNaN(unidades) ||
       isNaN(importe_venta_total) ||
       isNaN(importe_coste_total)
     ) {
       return res.status(400).json({
-        error:
-          "Las unidades, importes de venta y costes deben ser valores numéricos",
+        error: "Las unidades e importes deben ser valores numéricos",
       });
     }
 
@@ -110,7 +105,6 @@ exports.createVenta = async (req, res) => {
   }
 };
 
-// Actualizar una venta existente
 exports.updateVenta = async (req, res) => {
   try {
     const ventaId = req.params.id;
@@ -123,25 +117,22 @@ exports.updateVenta = async (req, res) => {
       importe_coste_total,
     } = req.body;
 
-    // Validación del ID
     if (!ventaId) {
       return res.status(400).json({ error: "ID de venta requerido" });
     }
 
-    const ventaExistente = await VentaModel.getVentaById(ventaId); // Verificar existencia
+    const ventaExistente = await VentaModel.getVentaById(ventaId);
     if (!ventaExistente) {
       return res.status(404).json({ error: "Venta no encontrada" });
     }
 
-    // Validación de valores numéricos si se proporcionan
     if (
       (unidades && isNaN(unidades)) ||
       (importe_venta_total && isNaN(importe_venta_total)) ||
       (importe_coste_total && isNaN(importe_coste_total))
     ) {
       return res.status(400).json({
-        error:
-          "Las unidades, importes de venta y costes deben ser valores numéricos",
+        error: "Las unidades e importes deben ser valores numéricos",
       });
     }
 
@@ -169,23 +160,20 @@ exports.updateVenta = async (req, res) => {
   }
 };
 
-// Eliminar venta por ID
 exports.deleteVenta = async (req, res) => {
   try {
     const ventaId = req.params.id;
 
-    // Validación del ID
     if (!ventaId) {
       return res.status(400).json({ error: "ID de venta requerido" });
     }
 
-    const ventaExistente = await VentaModel.getVentaById(ventaId); // Verificar existencia
+    const ventaExistente = await VentaModel.getVentaById(ventaId);
     if (!ventaExistente) {
       return res.status(404).json({ error: "Venta no encontrada" });
     }
 
-    await VentaModel.deleteVenta(ventaId); // Eliminar venta
-
+    await VentaModel.deleteVenta(ventaId);
     res.status(200).json({
       message: "Venta eliminada exitosamente",
       deletedId: ventaId,
