@@ -1,0 +1,20 @@
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Directorios de IDE
+.vscode/
+.idea/
+
+# Archivos de compilación
+*.exe
+*.log
+*.tmp
+
+# Dependencias
+node_modules/
+__pycache__/
+
+# Entornos virtuales
+venv/
+.env
