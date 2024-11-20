@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Variation Generator</title>
+    <link rel="stylesheet" href="styles/styles.css" />
+  </head>
+  <body>
+    <div id="mainContainer">
+      <h1>Image Variation Generator</h1>
+
+      <!-- Formulario para subir imágenes -->
+      <form id="imageUploadForm">
+        <label for="imageInput">Select an image:</label>
+        <input type="file" id="imageInput" />
+
+        <label for="numVariations">Number of variations (max 50):</label>
+        <div id="variationControl">
+          <input
+            type="range"
+            id="numVariationsSlider"
+            min="1"
+            max="50"
+            value="1"
+          />
+          <span id="numVariationsValue">1</span>
+        </div>
+
+        <label for="noteInput">Add a note (optional, max 50 characters):</label>
+        <input
+          type="text"
+          id="noteInput"
+          placeholder="Enter a note for the variations"
+          maxlength="50"
+        />
+
+        <button id="generateVariationsButton" type="button">
+          Generate Variations
+        </button>
+      </form>
+
+      <h3>Generated Images</h3>
+      <div id="imagesContainer"></div>
+
+      <!-- Filtro para buscar imágenes -->
+      <h3>Search Variations</h3>
+      <div id="filterImagesContainer">
+        <label for="filterBy">Filter by:</label>
+        <select id="filterBy">
+          <option value="all">All</option>
+          <option value="name">Name</option>
+          <option value="note">Note</option>
+          <option value="date">Date</option>
+        </select>
+
+        <input type="text" id="filterValue" placeholder="Enter filter value" />
+        <button id="filterImagesButton" type="button">Search</button>
+      </div>
+
+      <!-- Resultados de imágenes filtradas -->
+      <div id="filteredResultsContainer"></div>
+    </div>
+
+    <script src="scripts/app.js"></script>
+  </body>
+</html>
