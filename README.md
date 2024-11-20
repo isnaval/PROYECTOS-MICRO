@@ -15,7 +15,7 @@ Además, permite añadir notas personalizadas y realizar búsquedas avanzadas po
       - Backend: Node.js, Express.js
       - Base de datos: MongoDB
       
-###📌 Estado:
+📌 Estado:
       - Pendiente de finalizar algunas funcionalidades, pero ya operativa.
       - Se generan todas las imagenes que pido en el mismo archivo que se guarda en MongoDB
       - Hay que implementar la logica de la variación de las imagenes
@@ -31,7 +31,7 @@ Un proyecto minimalista que implementa una API RESTful con operaciones CRUD (cre
       - Backend: Node.js, Express.js
       - Base de datos: MariaDB
 
-###📌 Estado:
+📌 Estado:
       - Pendiente de finalizar algunas funcionalidades, pero ya operativa.
       - Se generan todas las imagenes que pido en el mismo archivo que se guarda en MongoDB
       - Hay que implementar la logica de la variación de las imagenes
@@ -42,8 +42,8 @@ Un proyecto minimalista que implementa una API RESTful con operaciones CRUD (cre
     - Accede al proyecto desde http://localhost:3000. o por http://localhost:5000 para el backend
     - No se han desarrollado test
 
-🛠️ Pendientes de añadir
+### 🛠️ Pendientes de añadir
 Pronto se incluirán nuevos proyectos con funciones más avanzadas.
 
-📄 Licencia
+## 📄 Licencia
 Este repositorio está bajo la licencia MIT, lo que significa que puedes usarlo, modificarlo y distribuirlo libremente. 🎉
