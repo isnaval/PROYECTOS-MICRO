@@ -146,3 +146,8 @@ LinkedIn: Tu Perfil
 Implementar más filtros de imagen
 Añadir interfaz de usuario más intuitiva
 Optimizar rendimiento de procesamiento
+
+
+HISTOGRAMA
+FILTROS DE IMAGENES
+EROSIONAR
